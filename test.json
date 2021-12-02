@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "data": {
+      "label": "Web Fundamental",
+      "position": {
+        "x": 100,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 2,
+    "data": {
+      "label": "Internet",
+      "position": {
+        "x": 200,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 3,
+    "data": {
+      "label": "HTTP",
+      "position": {
+        "x": 300,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 4,
+    "data": {
+      "label": "Browsers",
+      "position": {
+        "x": 400,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 5,
+    "data": {
+      "label": "DNS, Domain, Hosting",
+      "position": {
+        "x": 500,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 6,
+    "data": {
+      "label": "HTML",
+      "position": {
+        "x": 600,
+        "y": 0
+      }
+    }
+  },
+  {
+    "id": 7,
+    "data": {
+      "label": "Basic HTML Tag",
+      "position": {
+        "x": 700,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 8,
+    "data": {
+      "label": "Semantic HTML",
+      "position": {
+        "x": 800,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 9,
+    "data": {
+      "label": "Form and Validations",
+      "position": {
+        "x": 900,
+        "y": 100
+      }
+    }
+  },
+  {
+    "id": 10,
+    "data": {
+      "label": "Conventions and Best Practices",
+      "position": {
+        "x": 1000,
+        "y": 100
+      }
+    }
+  }
+]
