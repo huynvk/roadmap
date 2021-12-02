@@ -16,17 +16,18 @@ const toReactFlowStructure = (data) => {
 
   let lastCategoryNode = undefined;
 
-  data.forEach(({ category, item, subItem, ...rest }) => {
+  data.forEach(({ category, item, subItem, skillType, style, ...rest }) => {
     let detailedNode = undefined;
 
     if (category && !mappings[category]) {
       const categoryNode = {
         data: {
           label: category,
+          level: 1,
+          skillType,
         },
         position: { x: 100, y: calY() },
         id: generateId(),
-        level: 1,
       };
       mappings[category] = categoryNode;
 
@@ -47,10 +48,11 @@ const toReactFlowStructure = (data) => {
       const itemNode = {
         data: {
           label: item,
+          level: 2,
+          skillType,
         },
         id: generateId(),
         position: { x: 300, y: calY() },
-        level: 2,
       };
       const linkId = `e${categoryNode.id}-${itemNode.id}`;
 
@@ -68,10 +70,11 @@ const toReactFlowStructure = (data) => {
       const subItemNode = {
         data: {
           label: subItem,
+          level: 3,
+          skillType,
         },
         id: generateId(),
         position: { x: 600, y: calY() },
-        level: 3,
       };
       const linkId = `e${itemNode.id}-${subItemNode.id}`;
 
@@ -84,7 +87,8 @@ const toReactFlowStructure = (data) => {
       detailedNode = subItemNode;
     }
 
-    Object.assign(detailedNode, rest);
+    detailedNode.style = style;
+    Object.assign(detailedNode.data, rest);
   });
   return Object.values(mappings).sort((a, b) => {
     const yA = (a.position || { y: 0 }).y;
@@ -99,12 +103,11 @@ const addStylings = (data) => {
       return node;
     }
 
-    const { level, ...rest } = node;
     const newNode = {
-      ...rest,
+      ...node,
       type: index === 1 ? 'input' : undefined,
-      sourcePosition: level === 2 ? 'right' : undefined,
-      targetPosition: level > 1 ? 'left' : undefined,
+      sourcePosition: node.data.level === 2 ? 'right' : undefined,
+      targetPosition: node.data.level > 1 ? 'left' : undefined,
     };
     addStyle(newNode, { width: 200 });
     return newNode;
