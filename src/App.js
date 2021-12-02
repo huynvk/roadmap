@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import ReactFlow, {
-  ReactFlowProvider,
-  Controls,
-  MiniMap,
-} from 'react-flow-renderer';
+import ReactFlow, { ReactFlowProvider, Controls } from 'react-flow-renderer';
 import { isEmpty } from 'ramda';
 import { buildGraphData } from './data/pipeline';
 import styled from 'styled-components';
