@@ -1,6 +1,6 @@
 ,,,,,,FE,,,Full Stack,,,BE,,,DevOps,,,QC,,
 Category,Title,Sub Item,Skill Type,Description,Reference,Junior,Mid,Senior,Junior,Mid,Senior,Junior,Mid,Senior,Junior,Mid,Senior,Junior,Mid,Senior
-Coding Principles and Practices,OOP,,Hard Skills,,,2,2,1,2,1,1,1,1,1,,,,,,
+Coding Principles and Practices,OOP,,Hard Skills,,,2,2,1,2,1,1,1,1,1,,,,,3,2
 ,SOLID,,Hard Skills,,,3,2,1,,2,1,1,1,1,,,,,,
 ,Clean Code,,Hard Skills,,,3,2,1,,2,1,2,1,1,,,,,,
 ,TDD,,Hard Skills,,,,3,2,,3,2,2,2,2,,,,,,
@@ -13,20 +13,35 @@ OS,"Process, threads, concurrency",,Hard Skills,,,,3,3,,3,2,,2,1,2,1,1,,,
 ,Linux tools,Bash / Shell script,Hard Skills,,,,3,3,,3,3,,3,2,3,2,1,,,
 ,,Vi / Vim / Nano / PowerShell / Emacs,Hard Skills,,,,3,3,,3,2,,3,3,2,2,1,,,
 ,,Process monitoring,Hard Skills,,,,,,,3,3,,3,2,3,2,1,,,
-Interenet and Protocols,"Internet, HTTP",,Hard Skills,,,1,1,1,1,1,1,1,1,1,1,1,1,,,
+Internet,Web Fundamentals,,Hard Skills,"- Browsers
+- DNS
+- Domain
+- Hosting
+- CDN
+- Cookies
+- Session",,1,1,1,1,1,1,1,1,1,1,1,1,,,
+Protocols,"Internet, HTTP",,Hard Skills,,,1,1,1,1,1,1,1,1,1,1,1,1,,,
+,"HTTP, HTTP Methods",,,,,,,,,,,,,,,,,,,
+,HTTP Methods,,,,,,,,,,,,,,,,,,,
 ,Browsers,,Hard Skills,,,1,1,1,1,1,1,,3,3,,3,2,,,
 ,"DNS, Domain, Hosting, CDN",,Hard Skills,,,1,1,1,1,1,1,,2,2,1,1,1,,,
 ,Cookies,,Hard Skills,,,3,2,1,3,2,1,3,2,1,,,3,,,
-,RESTful API,,Hard Skills,,,1,1,1,1,1,1,1,1,1,,,3,,,
+,RESTful API,,Hard Skills,,,1,1,1,1,1,1,1,1,1,,,3,3,2,1
 ,GraphQL,,Hard Skills,,,3,3,3,3,3,3,3,3,2,,,3,,,
 ,gRPC,,Hard Skills,,,,,,,3,3,,3,2,,,3,,,
 ,OAuth,,Hard Skills,,,,3,2,,2,1,3,2,1,,,3,,,
-,WebSocket,,Hard Skills,,,3,3,2,3,3,2,,3,2,,,3,,,
+,Real-time,Websocket,Hard Skills,,,3,3,2,3,3,2,,3,2,,,3,,,
+,,Socket.io,Hard Skills,,,,3,3,,3,3,,3,2,,,,,,
+,,Firebase DB,Hard Skills,"- Firebase Firestore
+- Firebase Realtime Database",,3,3,2,3,3,2,3,3,2,,,,,,
+,,Push notification,Hard Skills,,,,3,3,,3,3,3,2,1,,,,,,
+,,Polling,Hard Skills,,,3,2,2,3,2,2,3,2,2,,,,,,
 ,Other protocols,"Email (SMTP, IMAPS, POP3)",Hard Skills,,,,3,3,,3,3,,2,2,3,2,1,,,
 ,,HTTPS / SSL / TLS,Hard Skills,,,,2,1,,2,1,,2,2,2,1,1,,,
 ,,"FTP, SSH",Hard Skills,,,,,,,3,2,,2,2,2,1,1,,,
 ,,Port Forwarding,Hard Skills,,,,,,,,3,,3,3,2,1,1,,,
 HTML,Basic HTML Tags,,Hard Skills,,,1,1,1,1,1,1,3,2,2,,,,,,
+,"Form data (text, file, streaming)",,Hard Skills,,,3,2,2,3,2,2,3,3,2,,,,,,
 ,Form and Validations,,Hard Skills,,,3,2,2,3,3,2,,,,,,,,,
 ,Graphics and Media,Canvas and SVG,Hard Skills,,,3,3,3,3,3,3,,,,,,,,,
 ,,"Media, Video, Audio",Hard Skills,,,3,3,3,3,3,3,,,,,,,,,
@@ -62,7 +77,16 @@ JS,Basic,Basic JS Syntax,Hard Skills,,,1,1,1,1,1,1,,,,,,,,,
 ,Common Library,Lodash,Hard Skills,,,3,2,1,3,2,2,,,,,,,,,
 ,,Moment,Hard Skills,,,3,2,1,3,2,2,,,,,,,,,
 ,,Immer,Hard Skills,,,3,2,1,3,2,2,,,,,,,,,
-Security,Content Security,,Hard Skills,,,,3,1,,3,1,,3,1,,3,1,,,
+Security,Framework built-in security features,,Hard Skills,,,,,,,,,,,,,,,,,
+,Authentication security,,,,,,,,,,,,,,,,,,,
+,Environment variables,,,,,,,,,,,,,,,,,,,
+,Source control & sensitive information,,,,,,,,,,,,,,,,,,,
+,CORS,,,,,,,,,,,,,,,,,,,
+,Cookie tags,,,,,,,,,,,,,,,,,,,
+,Bruteforce & Throttling,,,,,,,,,,,,,,,,,,,
+,Data sanitization,,,"SQL injection, file system traversal, url path traversal",,,,,,,,,,,,,,,,
+,Authorization security,,,,,,,,,,,,,,,,,,,
+,Content Security,,Hard Skills,,,,3,1,,3,1,,3,1,,3,1,,,
 ,Connection Security,,Hard Skills,,,,3,2,,3,2,,3,2,,3,2,,,
 ,Data Security,,Hard Skills,,,,3,2,,3,2,,3,2,,3,2,,,
 ,Information Leakage,,Hard Skills,,,,3,2,,3,2,,3,2,,3,2,,,
@@ -70,18 +94,26 @@ Security,Content Security,,Hard Skills,,,,3,1,,3,1,,3,1,,3,1,,,
 ,Clickjacking Protection,,Hard Skills,,,,3,2,,3,2,,3,2,,3,2,,,
 ,User information security,,Hard Skills,,,,3,2,,3,2,,3,2,,3,2,,,
 ,Security-related glossary terms,,Hard Skills,,,,3,2,,3,2,,3,1,,3,1,,,
+Authentication & Authorization,Token,,Hard Skills,"- JWT
+- Access Token
+- Refresh Token
+- Cookie
+- Session",,,3,2,3,2,1,3,2,1,,,,,,
+,Cookie,,Hard Skills,,,,3,2,3,2,1,3,2,1,,,,,,
+,Session,,Hard Skills,,,,3,2,3,2,1,3,2,1,,,,,,
+,OAuth2,,Hard Skills,,,,3,3,3,2,2,3,2,2,,,,,,
 Version Control,Git,,Hard Skills,,,1,1,1,1,1,1,1,1,1,1,1,1,,,
 ,Git Provider,Github,Hard Skills,,,2,2,1,2,2,1,2,2,1,2,2,1,,,
 ,,Gitlab,Hard Skills,,,,,3,,,3,,,3,,,3,,,
 ,,Bitbucket,Hard Skills,,,,,3,,,3,,,3,,,3,,,
 Package Manager,NPM,,Hard Skills,,,1,1,1,1,1,1,,,,3,2,1,,,
 ,Yarn,,Hard Skills,,,1,1,1,1,1,1,,,,3,2,1,,,
-Dev Tools,Prettier,,Hard Skills,,,,3,2,,3,2,,,,,,,,,
+,Prettier,,Hard Skills,,,,3,2,,3,2,,,,,,,,,
 ,Linters,,Hard Skills,,,,3,2,,3,2,,,,,,,,,
 ,Webpack,,Hard Skills,,,,,3,,,3,,,,,,,,,
 Tests,Unit test,,Hard Skills,,,3,2,1,3,2,1,2,1,1,,,,,,
-,Integration test,,Hard Skills,,,3,2,2,3,2,2,2,1,1,,,,,,
-,Acceptance test,,Hard Skills,,,,3,2,,3,2,,3,2,,,,,,
+,Integration test,,Hard Skills,,,3,2,2,3,2,2,2,1,1,,,,3,3,2
+,Acceptance test,,Hard Skills,,,,3,2,,3,2,,3,2,,,,1,1,1
 ,Libraries and frameworks,Jest,Hard Skills,,,,3,3,,3,3,,,,,,,,,
 ,,react-testing-library,Hard Skills,,,,3,3,,3,3,,,,,,,,,
 ,,Cypress,Hard Skills,,,,3,3,,3,3,,,,,,,,,
@@ -123,7 +155,8 @@ Publishing,Android App,,Hard Skills,,,3,3,2,,,3,,,,,,2,,,
 Web Assembly,,,Hard Skills,,,,,3,,,3,,,,,,,,,
 Web Components,,,Hard Skills,,,,,3,,,3,,,,,,,,,
 Web RTC,,,Hard Skills,,,,,3,,,3,,,,,,,,,
-Database,SQL,Basic syntax,Hard Skills,,,,,,1,1,1,1,1,1,1,1,1,,,
+Database,SQL,Basic syntax,Hard Skills,,,,,,1,1,1,1,1,1,1,1,1,3,3,3
+,,Stored Procedure,,,,,,,,3,3,3,3,2,3,3,2,,,
 ,,DB normalization,Hard Skills,,,,,,2,1,1,2,1,1,3,3,2,,,
 ,,Joins and union,Hard Skills,,,,,,2,1,1,2,1,1,3,3,2,,,
 ,,Group and calculations,Hard Skills,,,,,,3,2,1,3,2,1,3,3,2,,,
@@ -131,6 +164,7 @@ Database,SQL,Basic syntax,Hard Skills,,,,,,1,1,1,1,1,1,1,1,1,,,
 ,No SQL,Main concepts,Hard Skills,,,,,,,3,3,,3,2,,3,2,,,
 ,,Basic syntax,Hard Skills,,,,,,,3,3,,3,2,,3,2,,,
 ,Optimization,"Indexing, hashing",Hard Skills,,,,,,,2,2,3,2,1,,3,2,,,
+,,"N+1 problem, Sub queries vs Join",Hard Skills,,,,,3,3,2,1,3,2,1,,3,2,,,
 ,,DB Sharding,Hard Skills,,,,,,,3,3,3,3,2,,3,2,,,
 ,,SQL query best practices,Hard Skills,,,,,,,3,2,3,2,1,,3,2,,,
 ,,SQL schema best practices,Hard Skills,,,,,,,3,2,3,2,1,,3,2,,,
@@ -144,13 +178,17 @@ Database,SQL,Basic syntax,Hard Skills,,,,,,1,1,1,1,1,1,1,1,1,,,
 ,,MS Server,Hard Skills,,,,,,,,3,,,3,,,3,,,
 ,,Oracle,Hard Skills,,,,,,,,3,,,3,,,3,,,
 ,NoSQL DB,Mongo DB,Hard Skills,,,,,,3,3,3,,,3,,,3,,,
-,Migrations,,Hard Skills,,,,,,3,2,1,3,2,1,3,2,1,,,
+,Graph DB,Graph DB concept,Hard Skills,,,,,,,3,3,,3,3,,,3,,,
+,,Neo4j,Hard Skills,,,,,,,3,3,,3,3,,,3,,,
+,Migrations and seeks,,Hard Skills,,,,,,3,2,1,3,2,1,3,2,1,,,
+,Cache,Redis,Hard Skills,,,,,,3,2,1,3,2,1,3,2,1,,,
+,,Memcached,Hard Skills,,,,,,3,3,3,3,3,3,3,3,3,,,
 Microservices and Infrastructure,Container,"Docker, Docker Compose",Hard Skills,,,,,3,3,2,1,3,2,1,2,1,1,,,
 ,,Kubernetes,Hard Skills,,,,,,,,3,,3,2,3,2,1,,,
 ,,Docker Swarm,Hard Skills,,,,,,,,3,,3,3,3,2,1,,,
-,CI/CD,Github Action,Hard Skills,,,,3,2,,3,2,,3,2,2,2,1,,,
+,CI/CD,Github Action,Hard Skills,,,,3,2,,3,2,,3,2,2,2,1,3,2,2
 ,,Travis CI,Hard Skills,,,,3,3,,3,3,,3,2,3,2,2,,,
-,,Circle CI,Hard Skills,,,,3,3,,3,3,,3,2,3,2,2,,,
+,,Circle CI,Hard Skills,,,,3,3,,3,3,,3,2,3,2,2,3,3,2
 ,Distributed tracing,,Hard Skills,,,,,,,,3,,3,2,3,2,1,,,
 ,Monitoring and alert,,Hard Skills,,,,,,,,3,,3,2,2,2,1,,,
 ,Service Discovery,,Hard Skills,,,,,,,,3,,3,3,3,2,1,,,
@@ -172,42 +210,71 @@ Microservices and Infrastructure,Container,"Docker, Docker Compose",Hard Skills,
 ,,Twilio,Hard Skills,,,3,3,3,3,3,3,3,3,3,,,3,,,
 ,Web Server,Nginx,Hard Skills,,,,,,,3,3,,3,3,2,1,1,,,
 ,,MS IIS,Hard Skills,,,,,,,3,3,,,3,3,3,3,,,
-Message Queue,Kafka,,Hard Skills,,,,,,,3,2,,2,1,3,2,1,,,
+Serverless,AWS Lambda,,,,,,3,3,3,3,1,3,3,2,3,2,1,,,
+,GCP Cloud Functions,,,,,,3,3,3,3,1,3,3,2,3,2,1,,,
+,AWS Step Functions,,,,,,3,3,3,3,1,3,3,2,3,2,1,,,
+Message Queue,Kafka,,Hard Skills,,,,,,,3,2,,2,1,3,2,1,3,3,2
 ,RabbitMQ,,Hard Skills,,,,,,,3,2,,3,2,3,2,1,,,
 Cryptography,Encryptions,,Hard Skills,,,,,,,3,3,,3,2,,,,,,
 ,Hashing,,Hard Skills,,,,,,,3,3,,3,2,,,,,,
 Search engine,Elastic search,,Hard Skills,,,,,,,3,3,,3,2,,,,,,
-[Big Data and ML],,,Hard Skills,,,,,,,,,,,,,,,,,
-[Soft skills],,,Soft Skills,,,,,,,,,,,,,,,,,
-Communication,Communication,,Soft Skills,"1. Actively listen and respond to others
+Big Data and ML,Data pipeline (ETL),Dataflow,Hard Skills,,,,,,,,,,,,,,,,,
+,,Airflow,,,,,,,,,,,,,,,,,,
+,,Serverless functions with event based trigger ,,,,,,,,,,,,,,,,,,
+,Data processing tools,Bigquery,Hard Skills,,,,,,,,,,,,,,,,,
+,,Spark,,,,,,,,,,,,,,,,,,
+,,Athena,,,,,,,,,,,,,,,,,,
+,MLOps,,Hard Skills,Build/deploy automated ML pipeline,,,,,,,,,,,,,,,,
+,ML research,Pytorch,Hard Skills,,,,,,,,,,,,,,,,,
+,,Tensorflow,,,,,,,,,,,,,,,,,,
+,,Article research & linear algrebra,Soft Skills,,,,,,,,,,,,,,,,,
+Soft Skills,Communication,Communication,Soft Skills,"1. Actively listen and respond to others
 2. Ability to communicate and discuss in English",,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Feedback,,Soft Skills,Open to providing and receiving feedback,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Presentation,,Soft Skills,Present to the team on topics,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Documentation,,Soft Skills,Clearly write out documentation and written responses,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Facilication,,Soft Skills,Facilitate open discussions,,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
-Team Work,Working Together,,Soft Skills,"1. Pair with team members on completing tasks
+,,Feedback,Soft Skills,Open to providing and receiving feedback,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
+,,Presentation,Soft Skills,Present to the team on topics,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
+,,Documentation,Soft Skills,Clearly write out documentation and written responses,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
+,,Facilication,Soft Skills,Facilitate open discussions,,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
+,Team Work,Working Together,Soft Skills,"1. Pair with team members on completing tasks
 2. Collaborate with the team and share ideas",,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Resolve conflicts,,Soft Skills,Resolve any conflicts in a collaborative manner,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Mentoring,,Soft Skills,Mentoring other team members,,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
-Decision Making & Problem Solving,Exploration,,Soft Skills,"1. Consider all perspectives before making a decision
+,,Resolve conflicts,Soft Skills,Resolve any conflicts in a collaborative manner,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
+,,Mentoring,Soft Skills,Mentoring other team members,,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
+,Decision Making & Problem Solving,Exploration,Soft Skills,"1. Consider all perspectives before making a decision
 2. Study similar problems to find solutions
 3. Reach out to larger team to find solutions
 4. Ask the right questions to deep-dive",,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Analysis,,Soft Skills,Analyze potential solutions before implementation,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Problem Solving,,Soft Skills,"1. Clearly articulate why a decision is being made
+,,Analysis,Soft Skills,Analyze potential solutions before implementation,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
+,,Problem Solving,Soft Skills,"1. Clearly articulate why a decision is being made
 2. Support their decision with context",,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-Empowerment,Encouragement,,Soft Skills,Encourage other team members to progress,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
-,Inspiration,,Soft Skills,Inspire other team members to grow,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
-,Share,,Soft Skills,Share new ideas with others to empower learning,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
-Empathy,Understanding,,Soft Skills,Ability to understand the perspective of others,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
-,Respect,,Soft Skills,Respect for team members and clients as equal,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
-,Acceptance,,Soft Skills,Patience and acceptance when working with different levels,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
-,Self-awareness,,Soft Skills,Self-aware and mindful of interactions with others,,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
-Growth,Develop Skills,,Soft Skills,"1. Find new skills to improve on and develop
+,Empowerment,Encouragement,Soft Skills,Encourage other team members to progress,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+,,Inspiration,Soft Skills,Inspire other team members to grow,,3,2,1,3,2,1,3,2,1,3,2,1,3,2,1
+,,Share,Soft Skills,Share new ideas with others to empower learning,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+,Empathy,Understanding,Soft Skills,Ability to understand the perspective of others,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+,,Respect,Soft Skills,Respect for team members and clients as equal,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+,,Acceptance,Soft Skills,Patience and acceptance when working with different levels,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+,,Self-awareness,Soft Skills,Self-aware and mindful of interactions with others,,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
+,Growth,Develop Skills,Soft Skills,"1. Find new skills to improve on and develop
 2. Learn from mistakes and use it for future development",,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
-,Vulnerability,,Soft Skills,Be open to vulnerability and uncertainty,,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-Leadership,Delegation,,Soft Skills,Delegate work to suitable team members,,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
-,Planning and Organisation,,Soft Skills,"1. Organize team processes and systems
+,,Vulnerability,Soft Skills,Be open to vulnerability and uncertainty,,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+,Leadership,Delegation,Soft Skills,Delegate work to suitable team members,,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+,,Planning and Organisation,Soft Skills,"1. Organize team processes and systems
 2. Plan and analyze to set project goals
 3. Set clear goals for teammates and review progress",,3,3,2,3,3,2,3,3,2,3,3,2,3,3,2
-,Praise & Recognition,,Soft Skills,Praise achievements and recognize the effort,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+,,Praise & Recognition,Soft Skills,Praise achievements and recognize the effort,,3,2,2,3,2,2,3,2,2,3,2,2,3,2,2
+Software Testing,Create bugs skill & Prioritization,,Hard Skills,"1. Have effective bugs reporting
+2. Prioritization bugs fixed effeciently",,,,,,,,,,,,,,1,1,1
+,Create effective test cases,,Hard Skills,,,,,,,,,,,,,,,1,1,1
+,Accessibility Testing,,Hard Skills,,,,,,,,,,,,,,,1,1,1
+,Exploratory Testing (pre-release),,Hard Skills,,,,,,,,,,,,,,,2,1,1
+,Automated End-to-end Browser Testing,,Hard Skills,,,,,,,,,,,,,,,3,2,2
+,"Automated API/Integration Testing
+",,Hard Skills,,,,,,,,,,,,,,,3,2,2
+,"Mobile Automated Testing
+",,Hard Skills,,,,,,,,,,,,,,,3,2,2
+,Test Planning,,Hard Skills,,,,,,,,,,,,,,,2,1,1
+,Security Testing,,Hard Skills,,,,,,,,,,,,,,,2,1,1
+,Requirement Analysis,,Hard Skills,,,,,,,,,,,,,,,2,1,1
+,Blackbox Testing,,Hard Skills,,,,,,,,,,,,,,,3,2,1
+,Risk control,,Hard Skills,,,,,,,,,,,,,,,3,3,1
+,Cross functional pairing,,Hard Skills,,,,,,,,,,,,,,,3,2,1
+,Time Management,,Soft Skills,,,,,,,,,,,,,,,3,2,1
+,Presentation/Demoing Skill,,Soft Skills,,,,,,,,,,,,,,,3,3,2

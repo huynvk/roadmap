@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import ReactFlow, { ReactFlowProvider, Controls } from 'react-flow-renderer';
 import { isEmpty } from 'ramda';
 import { buildGraphData } from './data/pipeline';
 import styled from 'styled-components';
+import Header from './Header';
+import Legend from './Legend';
+import Details from './Detail';
+
 const parsedData = require('./data/parsed-data.json');
 
 const filterMappings = {
@@ -23,9 +27,7 @@ const filterMappings = {
   'Senior QC': (v) => v.qcSenior,
 };
 
-const options = Object.keys(filterMappings);
-
-const Container = styled.div`
+const Root = styled.div`
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -33,106 +35,52 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const Button = styled.a`
-  padding: 10px;
-  border: 1px solid ${(props) => (props.isSelected ? 'orange' : '#fff')};
-  background: ${(props) => (props.isSelected ? 'orange' : '#fff')};
-  cursor: default;
-
-  &:hover {
-    color: ${(props) => (props.isSelected ? 'notset' : 'orange')};
-  }
-`;
-
-const ButtonBar = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-self: stretch;
-`;
-
 const GraphContainer = styled.div`
-  border: 1px solid black;
   position: relative;
   flex: 1;
-  margin: 10px;
+  background: #fffffe;
+
+  .react-flow__node {
+    background: #ffffff;
+    border-color: #cdd1d6;
+    color: #091e42;
+    width: 200px;
+
+    svg {
+      float: left;
+    }
+  }
+
+  .react-flow__handle {
+    width: 0px;
+    height: 0px;
+  }
 `;
-
-const DetailContainer = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: ${(props) => (props.isSoft ? '#f5ddb8' : '#b8e3f5')};
-  padding: 20px;
-  width: 200px;
-  min-height: 300px;
-  border-radius: 10px;
-  z-index: 99;
-`;
-
-const Details = ({ title, details, recommendLevel }) => {
-  const recommendation = {
-    1: 'Highly recommended',
-    2: 'Recommended',
-    3: 'Nice to have',
-  }[recommendLevel];
-
-  return (
-    <DetailContainer isSoft={details.skillType === 'Soft Skills'}>
-      <h3 className='title'>{details.label}</h3>
-      {details.skillType && (
-        <div className='skillType'>({details.skillType})</div>
-      )}
-      {recommendation && (
-        <h5>
-          {recommendation} for {title}
-        </h5>
-      )}
-      <h6>Description</h6>
-      {details.description
-        ? details.description.split('\n').map((e, i) => <p key={i}>{e}</p>)
-        : 'N/A'}
-
-      <h6>References</h6>
-      {details.reference
-        ? details.reference.split('\n').map((e, i) => <p key={i}>{e}</p>)
-        : 'N/A'}
-    </DetailContainer>
-  );
-};
 
 const App = () => {
   const [selection, setSelection] = useState('Junior FE');
   const [selectedNode, selectNode] = useState({});
 
-  const filter = filterMappings[selection] || ((e) => true);
-  const buildData = buildGraphData(filter, filter);
+  const filter = useMemo(
+    () => filterMappings[selection] || ((e) => true),
+    [selection]
+  );
+
+  const elements = useMemo(() => {
+    const buildData = buildGraphData(filter, filter);
+
+    return buildData(parsedData);
+  }, [filter]);
 
   return (
-    <Container>
-      <ButtonBar>
-        {options.map((v, i) => (
-          <Button
-            key={i}
-            isSelected={v === selection}
-            onClick={() => setSelection(v)}
-          >
-            {v}
-          </Button>
-        ))}
-      </ButtonBar>
-      <GraphContainer
-        style={{
-          border: '1px solid black',
-          flex: 1,
-          margin: '10px',
-        }}
-      >
+    <Root>
+      <Header />
+      <Legend title={selection} />
+      <GraphContainer>
         {!isEmpty(selectedNode) && (
           <Details
-            title={selection}
-            details={selectedNode.data || {}}
-            recommendLevel={filter(selectedNode.data || {})}
+            recommendation={filter(selectedNode.data)}
+            details={selectedNode.data}
           />
         )}
         <ReactFlowProvider>
@@ -141,11 +89,11 @@ const App = () => {
             onElementClick={(event, element) => selectNode(element)}
             panOnScroll
             panOnScrollMode='vertical'
-            elements={buildData(parsedData)}
+            elements={elements}
           />
         </ReactFlowProvider>
       </GraphContainer>
-    </Container>
+    </Root>
   );
 };
 

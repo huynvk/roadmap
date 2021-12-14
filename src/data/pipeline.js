@@ -1,3 +1,6 @@
+import { ReactComponent as Bookmark } from '../icons/Bookmark.svg';
+import { ReactComponent as Like } from '../icons/Like.svg';
+import { ReactComponent as Star } from '../icons/Star.svg';
 const { pipe } = require('ramda');
 
 const generateId = (() => {
@@ -97,7 +100,7 @@ const toReactFlowStructure = (data) => {
   });
 };
 
-const addStylings = (data) => {
+const updateHandlerPositions = (data) => {
   return data.map((node, index) => {
     if (!node.data) {
       return node;
@@ -105,11 +108,9 @@ const addStylings = (data) => {
 
     const newNode = {
       ...node,
-      type: index === 1 ? 'input' : undefined,
       sourcePosition: node.data.level === 2 ? 'right' : undefined,
       targetPosition: node.data.level > 1 ? 'left' : undefined,
     };
-    addStyle(newNode, { width: 200 });
     return newNode;
   });
 };
@@ -122,15 +123,30 @@ const addStyle = (item, style) => {
 
 const addRecommendations = (fn) => (data) => {
   data.forEach((item) => {
-    switch (fn(item)) {
+    switch (fn(item.data || {})) {
       case '3':
-        addStyle(item, { background: '#b7e1cd' });
+        addStyle(item, { background: '#fff4ee', borderColor: '#f49766' });
+        item.data.label = (
+          <div className='recommendation'>
+            <Star /> {item.data.label}
+          </div>
+        );
         break;
       case '2':
-        addStyle(item, { background: '#7ad391' });
+        addStyle(item, { background: '#f0f5ff', borderColor: '#a1c0ff' });
+        item.data.label = (
+          <div className='recommendation'>
+            <Like /> {item.data.label}
+          </div>
+        );
         break;
       case '1':
-        addStyle(item, { background: '#34a853' });
+        addStyle(item, { background: '#fffae6', borderColor: '#fee060' });
+        item.data.label = (
+          <div className='recommendation'>
+            <Bookmark /> {item.data.label}
+          </div>
+        );
         break;
       default:
         break;
@@ -139,15 +155,11 @@ const addRecommendations = (fn) => (data) => {
   return data;
 };
 
-const buildGraphData = (filterFn, recommendFn) => (data) => {
+export const buildGraphData = (filterFn, recommendFn) => (data) => {
   return pipe(
     filter(filterFn),
-    addRecommendations(recommendFn),
     toReactFlowStructure,
-    addStylings
+    addRecommendations(recommendFn),
+    updateHandlerPositions
   )(data);
-};
-
-module.exports = {
-  buildGraphData,
 };
