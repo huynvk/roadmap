@@ -90,6 +90,7 @@ const App = () => {
             panOnScroll
             panOnScrollMode='vertical'
             elements={elements}
+            onPaneClick={() => selectNode({})}
           />
         </ReactFlowProvider>
       </GraphContainer>
