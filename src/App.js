@@ -6,26 +6,10 @@ import styled from 'styled-components';
 import Header from './Header';
 import Legend from './Legend';
 import Details from './Detail';
+import { useLocation } from 'react-router-dom';
+import { getFilterFromUrl, getLabelFromURL } from './route';
 
 const parsedData = require('./data/parsed-data.json');
-
-const filterMappings = {
-  'Junior FE': (v) => v.feJunior,
-  'Mid FE': (v) => v.feMid,
-  'Senior FE': (v) => v.feSenior,
-  'Junior BE': (v) => v.beJunior,
-  'Mid BE': (v) => v.beMid,
-  'Senior BE': (v) => v.beSenior,
-  'Junior Fullstack': (v) => v.fsJunior,
-  'Mid Fullstack': (v) => v.fsMid,
-  'Senior Fullstack': (v) => v.fsSenior,
-  'Junior DevOps': (v) => v.doJunior,
-  'Mid DevOps': (v) => v.doMid,
-  'Senior DevOps': (v) => v.doSenior,
-  'Junior QC': (v) => v.qcJunior,
-  'Mid QC': (v) => v.qcMid,
-  'Senior QC': (v) => v.qcSenior,
-};
 
 const Root = styled.div`
   display: flex;
@@ -58,14 +42,11 @@ const GraphContainer = styled.div`
 `;
 
 const App = () => {
-  const [selection, setSelection] = useState('Junior FE');
   const [selectedNode, selectNode] = useState({});
+  const location = useLocation().pathname;
+  const label = getLabelFromURL(location);
 
-  const filter = useMemo(
-    () => filterMappings[selection] || ((e) => true),
-    [selection]
-  );
-
+  const filter = useMemo(() => getFilterFromUrl(location), [location]);
   const elements = useMemo(() => {
     const buildData = buildGraphData(filter, filter);
 
@@ -75,7 +56,7 @@ const App = () => {
   return (
     <Root>
       <Header />
-      <Legend title={selection} />
+      <Legend title={label} />
       <GraphContainer>
         {!isEmpty(selectedNode) && (
           <Details

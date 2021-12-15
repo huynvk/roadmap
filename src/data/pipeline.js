@@ -124,7 +124,7 @@ const addStyle = (item, style) => {
 const addRecommendations = (fn) => (data) => {
   data.forEach((item) => {
     switch (fn(item.data || {})) {
-      case '3':
+      case '1':
         addStyle(item, { background: '#fff4ee', borderColor: '#f49766' });
         item.data.label = (
           <div className='recommendation'>
@@ -140,7 +140,7 @@ const addRecommendations = (fn) => (data) => {
           </div>
         );
         break;
-      case '1':
+      case '3':
         addStyle(item, { background: '#fffae6', borderColor: '#fee060' });
         item.data.label = (
           <div className='recommendation'>

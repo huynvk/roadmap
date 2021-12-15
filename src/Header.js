@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { ReactComponent as CodeLinkLogo } from './icons/CodeLink.svg';
 import { Container } from './Common';
+import { routeGroups } from './route';
 
 const CustomToolBar = styled.div`
   display: flex;
@@ -65,7 +66,7 @@ const DropDownMenuContainer = styled.div`
   }
 `;
 
-const DropDownMenu = ({ label, items }) => {
+const DropDownMenu = ({ label, routes }) => {
   return (
     <DropDownMenuContainer>
       <button className='dropbtn'>
@@ -73,9 +74,9 @@ const DropDownMenu = ({ label, items }) => {
         <KeyboardArrowDownIcon />
       </button>
       <div className='dropdown-content'>
-        {items.map((e, i) => (
-          <a key={i} href='#'>
-            {e}
+        {routes.map(({ url, subCategory }, i) => (
+          <a key={i} href={url}>
+            {subCategory}
           </a>
         ))}
       </div>
@@ -94,25 +95,17 @@ const Header = () => {
         <AppBar color='transparent'>
           <Container>
             <CustomToolBar>
-              <CodeLinkLogo />
+              <a href='/'>
+                <CodeLinkLogo />
+              </a>
               <HSpace />
-              <DropDownMenu
-                label='Front End'
-                items={['Junior', 'Mid', 'Senior']}
-              />
-              <DropDownMenu
-                label='Back End'
-                items={['Junior', 'Mid', 'Senior']}
-              />
-              <DropDownMenu
-                label='Fullstack'
-                items={['Junior', 'Mid', 'Senior']}
-              />
-              <DropDownMenu
-                label='DevOps'
-                items={['Junior', 'Mid', 'Senior']}
-              />
-              <DropDownMenu label='QC' items={['Junior', 'Mid', 'Senior']} />
+              {Object.keys(routeGroups).map((category, i) => (
+                <DropDownMenu
+                  key={i}
+                  label={category}
+                  routes={routeGroups[category]}
+                />
+              ))}
             </CustomToolBar>
           </Container>
         </AppBar>
