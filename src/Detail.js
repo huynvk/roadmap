@@ -51,6 +51,9 @@ const DetailContainer = styled.div`
     font-size: 14px;
     color: #172b4d;
   }
+
+  i {
+  }
 `;
 
 const Details = ({ details, recommendation }) => {
@@ -64,14 +67,22 @@ const Details = ({ details, recommendation }) => {
       )}
 
       <h6>Description</h6>
-      {details.description
-        ? details.description.split('\n').map((e, i) => <p key={i}>{e}</p>)
-        : 'N/A'}
+      {details.description ? (
+        details.description.split('\n').map((e, i) => <p key={i}>{e}</p>)
+      ) : (
+        <p>
+          <i>(To be Defined)</i>
+        </p>
+      )}
 
       <h6>References</h6>
-      {details.reference
-        ? details.reference.split('\n').map((e, i) => <p key={i}>{e}</p>)
-        : 'N/A'}
+      {details.reference ? (
+        details.reference.split('\n').map((e, i) => <p key={i}>{e}</p>)
+      ) : (
+        <p>
+          <i>(To be Defined)</i>
+        </p>
+      )}
     </DetailContainer>
   );
 };

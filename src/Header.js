@@ -88,6 +88,22 @@ const AppBarContainer = styled.div`
   height: 50px;
 `;
 
+const FullSpace = styled.div`
+  flex: 1;
+`;
+
+const FeedbackButton = styled.a`
+  color: #344563;
+  text-decoration: none;
+  border: 1px solid silver;
+  padding: 5px 10px;
+  border-radius: 5px;
+
+  &:hover {
+    background: #a1c0ff;
+  }
+`;
+
 const Header = () => {
   return (
     <>
@@ -106,6 +122,13 @@ const Header = () => {
                   routes={routeGroups[category]}
                 />
               ))}
+              <FullSpace />
+              <FeedbackButton
+                href='https://forms.gle/9p8cScKvm2nughDC9'
+                target='_blank'
+              >
+                Feedback
+              </FeedbackButton>
             </CustomToolBar>
           </Container>
         </AppBar>
