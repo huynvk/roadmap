@@ -9,15 +9,20 @@ import {
   Navigate,
   Routes,
 } from 'react-router-dom';
+import { RestfulProvider } from 'restful-react';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='*' element={<App />} />
-        <Route exact path='/' element={<Navigate to='/frontend/junior' />} />
-      </Routes>
-    </Router>
+    <RestfulProvider
+      base={process.env.REACT_APP_BASE_URL || 'http://localhost:3000/'}
+    >
+      <Router>
+        <Routes>
+          <Route path='*' element={<App />} />
+          <Route exact path='/' element={<Navigate to='/frontend/junior' />} />
+        </Routes>
+      </Router>
+    </RestfulProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

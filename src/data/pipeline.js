@@ -8,6 +8,93 @@ const generateId = (() => {
   return () => ++count;
 })();
 
+const toReactFlowStructure2 = (allRoots) => {
+  const calY = (() => {
+    let y = 0;
+    return () => {
+      y += 50;
+      return y;
+    };
+  })();
+
+  const recommendLevel = (() => {
+    let i = 1;
+    return () => {
+      i = i < 4 ? i + 1 : 1;
+      return i;
+    };
+  })();
+
+  const buildConnectionNode = (fromNode, toNode) => {
+    return {
+      source: fromNode.id,
+      target: toNode.id,
+      id: `e${fromNode.id}-${toNode.id}`,
+    };
+  };
+
+  const buildTree = (skill, parentNode) => {
+    let nodes = [];
+
+    const { id, name, skillType, description, reference, children, ...rest } =
+      skill;
+
+    const level = parentNode ? (parentNode.data.level || 1) + 1 : 1;
+    const nodeData = {
+      label: name,
+      level,
+      skillType,
+      description,
+      reference,
+      // recommendLevel: recommendLevel(),
+      ...rest,
+    };
+
+    const skillNode = {
+      id,
+      data: nodeData,
+      position: { x: (level - 1) * 300, y: calY() },
+    };
+    nodes.push(skillNode);
+
+    if (parentNode) {
+      nodes.push(buildConnectionNode(parentNode, skillNode));
+    }
+
+    if (children && children.length > 0) {
+      children.forEach((subSkill) => {
+        const childNodes = buildTree(subSkill, skillNode);
+        if (childNodes.length > 0) {
+          nodes = nodes.concat(childNodes);
+        }
+      });
+    } else {
+      nodeData.recommendLevel = recommendLevel();
+    }
+
+    return nodes;
+  };
+
+  let allNodes = [];
+  let prevRootNode = undefined;
+
+  allRoots.forEach((rootNode) => {
+    // Build root trees (root node + its children nodes)
+    const tree = buildTree(rootNode);
+    allNodes = allNodes.concat(tree);
+
+    // Build connections among root notes
+    if (tree.length > 0) {
+      if (prevRootNode) {
+        allNodes.push(buildConnectionNode(prevRootNode, tree[0]));
+      }
+      prevRootNode = tree[0];
+    }
+  });
+
+  return allNodes;
+};
+
 const toReactFlowStructure = (data) => {
   const mappings = {};
   let y = 0;
@@ -122,9 +209,13 @@ const addStyle = (item, style) => {
 };
 
 const addRecommendations = (fn) => (data) => {
-  data.forEach((item) => {
+  const newData = [];
+
+  data.forEach((exitingItem) => {
+    const item = { ...exitingItem };
+
     switch (fn(item.data || {})) {
-      case '1':
+      case 1:
         addStyle(item, { background: '#fff4ee', borderColor: '#f49766' });
         item.data.label = (
           <div className='recommendation'>
@@ -132,7 +223,7 @@ const addRecommendations = (fn) => (data) => {
           </div>
         );
         break;
-      case '2':
+      case 2:
         addStyle(item, { background: '#f0f5ff', borderColor: '#a1c0ff' });
         item.data.label = (
           <div className='recommendation'>
@@ -140,7 +231,7 @@ const addRecommendations = (fn) => (data) => {
           </div>
         );
         break;
-      case '3':
+      case 3:
         addStyle(item, { background: '#fffae6', borderColor: '#fee060' });
         item.data.label = (
           <div className='recommendation'>
@@ -151,6 +242,8 @@ const addRecommendations = (fn) => (data) => {
       default:
         break;
     }
+
+    newData.push(item);
   });
   return data;
 };
@@ -159,6 +252,23 @@ export const buildGraphData = (filterFn, recommendFn) => (data) => {
   return pipe(
     filter(filterFn),
     toReactFlowStructure,
+    addRecommendations(recommendFn),
+    updateHandlerPositions
+  )(data);
+};
+
+// const addMockRecommendationData = (data) => {
+//   data.forEach((item) => {
+//     item.recommendLevel = Math.random() * 3 + 1;
+//   });
+//   return data;
+// };
+
+export const buildGraphData2 = (filterFn, recommendFn) => (data) => {
+  return pipe(
+    filter(filterFn),
+    // addMockRecommendationData,
+    toReactFlowStructure2,
     addRecommendations(recommendFn),
     updateHandlerPositions
   )(data);

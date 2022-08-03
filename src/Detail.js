@@ -1,4 +1,8 @@
+import { Button } from '@mui/material';
+import Chip from '@mui/material/Chip';
+import { useState } from 'react';
 import styled from 'styled-components';
+import { httpclient } from './httpclient';
 import { ReactComponent as Bookmark } from './icons/Bookmark.svg';
 import { ReactComponent as Like } from './icons/Like.svg';
 import { ReactComponent as Star } from './icons/Star.svg';
@@ -38,6 +42,7 @@ const DetailContainer = styled.div`
   .skill-type {
     font-size: 12px;
     color: #42526e;
+    margin-top: 10px;
   }
 
   h6 {
@@ -56,12 +61,123 @@ const DetailContainer = styled.div`
   }
 `;
 
-const Details = ({ details, recommendation }) => {
+const userSkillStatuses = {
+  WISH: 'wish',
+  INPROGRESS: 'in-progress',
+  SUBMITTED: 'submitted',
+  CONFIRMED: 'confirmed',
+};
+
+const renderCTA = (userId, skillId, status, setUserSkill) => {
+  // if (!userSkill) {
+  //   return '';
+  // }
+  // const status = userSkill.status;
+
+  if (!status) {
+    return (
+      <Button
+        onClick={() => {
+          setUserSkill({ userId, skillId, status: userSkillStatuses.WISH });
+          httpclient.put(`users/${userId}/skills/${skillId}/status`, {
+            status: userSkillStatuses.WISH,
+          });
+        }}
+      >
+        Add To Wish List
+      </Button>
+    );
+  }
+
+  if (status === userSkillStatuses.WISH) {
+    return (
+      <Button
+        onClick={() => {
+          setUserSkill({
+            userId,
+            skillId,
+            status: userSkillStatuses.INPROGRESS,
+          });
+          httpclient.put(`users/${userId}/skills/${skillId}/status`, {
+            status: userSkillStatuses.INPROGRESS,
+          });
+        }}
+      >
+        Start Learning
+      </Button>
+    );
+  }
+
+  if (status === userSkillStatuses.INPROGRESS) {
+    return (
+      <Button
+        onClick={() => {
+          setUserSkill({
+            userId,
+            skillId,
+            status: userSkillStatuses.SUBMITTED,
+          });
+          httpclient.put(`users/${userId}/skills/${skillId}/status`, {
+            status: userSkillStatuses.SUBMITTED,
+          });
+        }}
+      >
+        Request Review
+      </Button>
+    );
+  }
+
+  return '';
+};
+
+const renderUserSkillStatus = (userSkill) => {
+  if (!userSkill) {
+    return '';
+  }
+  const status = userSkill.status;
+
+  if (!status) {
+    return '';
+  }
+
+  if (status === userSkillStatuses.WISH) {
+    return <Chip label='In Wish List' />;
+  }
+
+  if (status === userSkillStatuses.INPROGRESS) {
+    return <Chip label='In Progress' />;
+  }
+
+  if (status === userSkillStatuses.SUBMITTED) {
+    return <Chip label='Review Submitted' />;
+  }
+
+  if (status === userSkillStatuses.CONFIRMED) {
+    return <Chip label='Gained' color='primary' />;
+  }
+
+  return '';
+};
+
+const Details = ({
+  userId,
+  skillId,
+  details,
+  recommendation,
+  userSkill: defaultUserSkill,
+}) => {
+  const [userSkill, setUserSkill] = useState(defaultUserSkill);
+
+  console.log('user skill', userSkill);
+  console.log('skillId', skillId);
+  console.log('userId', userId);
+
   return (
     <DetailContainer>
       <h3 className='title'>
         {getRecommendationIcon(recommendation)} {details.label}
       </h3>
+      {renderUserSkillStatus(userSkill)}
       {details.skillType && (
         <div className='skill-type'>{details.skillType}</div>
       )}
@@ -82,6 +198,13 @@ const Details = ({ details, recommendation }) => {
         <p>
           <i>(To be Defined)</i>
         </p>
+      )}
+
+      {renderCTA(
+        userId,
+        skillId,
+        userSkill ? userSkill.status : '',
+        setUserSkill
       )}
     </DetailContainer>
   );
